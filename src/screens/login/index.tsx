@@ -16,11 +16,13 @@ export default function Login(){
             <Text style={styles.title}>Email</Text>
             <TextInput
                 placeholder="Digite um e-mail"
+                placeholderTextColor={"#D1D1E9"}
                 style={styles.input}
             />
             <Text style={styles.title}>Senha</Text>
             <TextInput
                 placeholder="Sua senha"
+                placeholderTextColor={"#D1D1E9"}
                 style={styles.input}
             />
             <TouchableOpacity style={styles.button}>

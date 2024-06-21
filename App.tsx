@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 export default function App() {
   return (
     <NavigationContainer>
-      <StatusBar backgroundColor="blue"/>
+      <StatusBar backgroundColor="#6246EA"/>
       <Routes/>
     </NavigationContainer>
   );
