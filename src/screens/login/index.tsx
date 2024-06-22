@@ -30,7 +30,8 @@ export default function Login(){
             onPress={() =>
             setModalVisibility(!modalVisibility)}
             modalVisibility={modalVisibility}
-            popUpText={'Suas credencias estão incorretas.'} errorIcon={<MaterialIcons name="error-outline" size={110} color="#E45858"/>}
+            popUpText={'Suas credencias estão incorretas.'}
+            errorIcon={<MaterialIcons name="error-outline" size={110} color="#E45858"/>}
         />
         <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
             <Text style={styles.text}>
