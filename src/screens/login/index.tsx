@@ -4,25 +4,54 @@ import styles from "./style";
 import * as Animatable from 'react-native-animatable'
 import { MaterialIcons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getAdmin, postAdmin } from "../../services/admin";
+import { Admin } from "../../types";
 
 export default function Login(){
     const[modalVisibility, setModalVisibility] = useState(false);
     const[email, setEmail] = useState("");
-    const[password, setPassword] = useState("");
+    const[senha, setSenha] = useState("");
+    const [admin, setAdmin] = useState<Admin>();
 
-    const loginValidation = () => {
-        const validEmail = "teste@teste.email";
-        const validPassword = "123";
-
-        if(email === validEmail && password === validPassword) {
-            console.warn("Sucesso!")
-        } else {
-            setModalVisibility(!modalVisibility);
+    const getAdminValido = async () => {
+        try{
+            const adminValido = await getAdmin();
+            setAdmin(adminValido);
+        } catch(err){
+            console.log(err);
         }
+    }
 
-        setPassword('');
-    };
+     const loginValidation = async () => {
+        try {
+
+            if(email === admin?.email && senha === admin?.senha) {
+                console.warn("Sucesso!")
+            } else {
+                setModalVisibility(!modalVisibility);
+            }
+        } catch(err){
+            console.log(err);
+        }    
+
+         setSenha('');
+     };
+
+     useEffect(() => {
+        getAdminValido();
+        
+     }, [])
+
+    //  const postNewAdmin = async () => {
+    //      try{
+    //          const adminValido = await postAdmin(admin);
+    //      console.log(adminValido);
+        
+    //      } catch (err){
+    //          console.log(err)
+    //      }
+    //  }
 
     return(
     <View style={styles.container}>
@@ -53,8 +82,8 @@ export default function Login(){
                 placeholder="Sua senha"
                 placeholderTextColor={"#D1D1E9"}
                 style={styles.input}
-                onChangeText={setPassword}
-                value={password}
+                onChangeText={setSenha}
+                value={senha}
             />
             <TouchableOpacity style={styles.button} onPress={loginValidation}>
                 <Text style={styles.buttonText}>Acessar</Text>
