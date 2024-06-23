@@ -6,50 +6,41 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import { useEffect, useState } from "react";
 import { getAdmin, postAdmin } from "../../services/admin";
-import { Admin } from "../../types";
 
 export default function Login(){
     const[modalVisibility, setModalVisibility] = useState(false);
     const[email, setEmail] = useState("");
     const[senha, setSenha] = useState("");
-    const [admin, setAdmin] = useState<Admin>();
 
-    const getAdminValido = async () => {
-        try{
-            const adminValido = await getAdmin();
-            setAdmin(adminValido);
-        } catch(err){
-            console.log(err);
-        }
-    }
+    // const admin = {
+    //     email: "dalbone@admin.com",
+    //     senha: "1234"
+    // }
 
      const loginValidation = async () => {
-        try {
 
-            if(email === admin?.email && senha === admin?.senha) {
-                console.warn("Sucesso!")
+        try{
+            const adminValido = await getAdmin();
+            console.log(adminValido[0]);
+            if(email === adminValido[0].email && senha === adminValido[0].senha) {
+                console.warn("Sucesso!");
             } else {
                 setModalVisibility(!modalVisibility);
             }
         } catch(err){
             console.log(err);
-        }    
+        }
 
-         setSenha('');
-     };
-
-     useEffect(() => {
-        getAdminValido();
-        
-     }, [])
+        setSenha('');
+    };
 
     //  const postNewAdmin = async () => {
     //      try{
-    //          const adminValido = await postAdmin(admin);
-    //      console.log(adminValido);
-        
+    //         const adminValido = await postAdmin(admin);
+    //         console.log(adminValido);
+
     //      } catch (err){
-    //          console.log(err)
+    //         console.log(err)
     //      }
     //  }
 
