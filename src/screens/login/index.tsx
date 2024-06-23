@@ -3,14 +3,19 @@ import PopUp from "../../components/popUp";
 import styles from "./style";
 import * as Animatable from 'react-native-animatable'
 import { MaterialIcons } from '@expo/vector-icons';
-import { Octicons } from '@expo/vector-icons';
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { getAdmin, postAdmin } from "../../services/admin";
+<<<<<<< Updated upstream
+=======
+import { useNavigation } from '@react-navigation/native'
+import { StackTypes } from "../../routes/stack";
+>>>>>>> Stashed changes
 
 export default function Login(){
     const[modalVisibility, setModalVisibility] = useState(false);
     const[email, setEmail] = useState("");
     const[senha, setSenha] = useState("");
+<<<<<<< Updated upstream
 
     // const admin = {
     //     email: "dalbone@admin.com",
@@ -24,11 +29,24 @@ export default function Login(){
             console.log(adminValido[0]);
             if(email === adminValido[0].email && senha === adminValido[0].senha) {
                 console.warn("Sucesso!");
+=======
+    const[logado, setLogado] = useState(false);
+
+    const navigation = useNavigation<StackTypes>();
+
+     const loginValidation = async () => {
+        try {
+            const adminValido = await getAdmin();
+            if(email === adminValido[0].email && senha === adminValido[0].senha) {
+                setLogado(true); // criar context de loading
+                navigation.navigate('Home');
+>>>>>>> Stashed changes
             } else {
                 setModalVisibility(!modalVisibility);
-            }
+            }       
         } catch(err){
             console.log(err);
+<<<<<<< Updated upstream
         }
 
         setSenha('');
@@ -43,6 +61,20 @@ export default function Login(){
     //         console.log(err)
     //      }
     //  }
+=======
+        }    
+         setSenha('');
+     };
+
+     // post utilizado para enviar login único do admin
+      const postNewAdmin = async () => {
+          try{
+              //const adminValido = await postAdmin(admin);
+          } catch (err){
+              console.log(err)
+          }
+      }
+>>>>>>> Stashed changes
 
     return(
     <View style={styles.container}>

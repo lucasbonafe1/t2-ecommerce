@@ -1,10 +1,12 @@
 import { NativeStackNavigationProp, createNativeStackNavigator } from '@react-navigation/native-stack'
 import Welcome from '../screens/welcome';
 import Login from '../screens/login';
+import Home from '../screens/home';
 
 type StackNavigation = {
     Welcome: undefined,
     Login: undefined,
+    Home: undefined,
 }
 
 const Stack = createNativeStackNavigator();
@@ -23,6 +25,13 @@ export default function Routes(){
             <Stack.Screen
                 name='Login'
                 component={Login}
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Stack.Screen
+                name='Home'
+                component={Home}
                 options={{
                     headerShown: false
                 }}
