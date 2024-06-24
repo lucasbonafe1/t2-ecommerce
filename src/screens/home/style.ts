@@ -33,6 +33,10 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: 'bold',
     },
+    products: {
+        width: '100%',
+        height: 190
+    }
 });
 
 export default styles;
