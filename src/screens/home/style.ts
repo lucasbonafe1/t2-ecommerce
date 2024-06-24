@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
     },
     containerLogo: {
-        flex: 0.18,
+        flex: 0.23,
         justifyContent: 'center',
         alignItems: 'center',
     },
