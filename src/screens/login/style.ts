@@ -4,12 +4,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor:'#D1D1E9',
-
     },
     containerHeader:{
+        alignItems:'center',
         marginTop: '14%',
-        marginBottom: '8%',
-        paddingStart: '5%'
+        marginBottom: '8%'
     },
     text:{
         fontSize: 28,
@@ -26,7 +25,7 @@ const styles = StyleSheet.create({
     },
     title:{
         fontSize: 20,
-        marginTop: 28,
+        marginTop: 35,
         color: '#D1D1E9',
     },
     input:{
@@ -37,6 +36,13 @@ const styles = StyleSheet.create({
         borderBottomColor: '#D1D1E9',
         color: '#D1D1E9'
     },
+    mostraSenha: {
+        left: "87%",
+        bottom: 47,
+        width: "10%",
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
     button:{
         backgroundColor:'#E45858',
         width:'100%',

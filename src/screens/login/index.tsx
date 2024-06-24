@@ -2,35 +2,20 @@ import { View, Text, TextInput, TouchableOpacity } from "react-native";
 import PopUp from "../../components/popUp";
 import styles from "./style";
 import * as Animatable from 'react-native-animatable'
-import { MaterialIcons } from '@expo/vector-icons';
-import { useContext, useState } from "react";
+import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+import { useState } from "react";
 import { getAdmin, postAdmin } from "../../services/admin";
-<<<<<<< Updated upstream
-=======
 import { useNavigation } from '@react-navigation/native'
 import { StackTypes } from "../../routes/stack";
->>>>>>> Stashed changes
 
 export default function Login(){
     const[modalVisibility, setModalVisibility] = useState(false);
     const[email, setEmail] = useState("");
     const[senha, setSenha] = useState("");
-<<<<<<< Updated upstream
-
-    // const admin = {
-    //     email: "dalbone@admin.com",
-    //     senha: "1234"
-    // }
-
-     const loginValidation = async () => {
-
-        try{
-            const adminValido = await getAdmin();
-            console.log(adminValido[0]);
-            if(email === adminValido[0].email && senha === adminValido[0].senha) {
-                console.warn("Sucesso!");
-=======
     const[logado, setLogado] = useState(false);
+
+    const[mostrarSenha, setMostrarSenha] = useState(true);
+
 
     const navigation = useNavigation<StackTypes>();
 
@@ -40,28 +25,11 @@ export default function Login(){
             if(email === adminValido[0].email && senha === adminValido[0].senha) {
                 setLogado(true); // criar context de loading
                 navigation.navigate('Home');
->>>>>>> Stashed changes
             } else {
                 setModalVisibility(!modalVisibility);
             }       
         } catch(err){
             console.log(err);
-<<<<<<< Updated upstream
-        }
-
-        setSenha('');
-    };
-
-    //  const postNewAdmin = async () => {
-    //      try{
-    //         const adminValido = await postAdmin(admin);
-    //         console.log(adminValido);
-
-    //      } catch (err){
-    //         console.log(err)
-    //      }
-    //  }
-=======
         }    
          setSenha('');
      };
@@ -74,7 +42,6 @@ export default function Login(){
               console.log(err)
           }
       }
->>>>>>> Stashed changes
 
     return(
     <View style={styles.container}>
@@ -87,15 +54,14 @@ export default function Login(){
         />
         <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>
             <Text style={styles.text}>
-            Bem-Vindo
+            Login
             </Text>
         </Animatable.View>
         <Animatable.View animation="fadeInUp" style={styles.containerForm}>
             <Text style={styles.title}>Email</Text>
             <TextInput
-
                 placeholder="Digite um e-mail"
-                placeholderTextColor={"#D1D1E9"}
+                placeholderTextColor={"#909094"}
                 style={styles.input}
                 onChangeText={setEmail}
                 value={email}
@@ -103,16 +69,26 @@ export default function Login(){
             <Text style={styles.title}>Senha</Text>
             <TextInput
                 placeholder="Sua senha"
-                placeholderTextColor={"#D1D1E9"}
+                placeholderTextColor={"#909094"}
                 style={styles.input}
                 onChangeText={setSenha}
                 value={senha}
+                secureTextEntry={mostrarSenha}
             />
+            <TouchableOpacity style={styles.mostraSenha} onPress={() => setMostrarSenha(!mostrarSenha)}>
+                { mostrarSenha ?
+                    <Ionicons name="eye" color={"#D1D1E9"} size={25}/>
+                    :
+                    <Ionicons name="eye-off" color={"gray"} size={25}/>
+                }
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.button} onPress={loginValidation}>
                 <Text style={styles.buttonText}>Acessar</Text>
             </TouchableOpacity>
+            
             <TouchableOpacity style={styles.buttonRegister}>
-                <Text style={styles.registerText}>Não possui uma conta? Cadastre-se</Text>
+                <Text style={styles.registerText}>Não possui uma conta?</Text>
             </TouchableOpacity>
 
         </Animatable.View>
