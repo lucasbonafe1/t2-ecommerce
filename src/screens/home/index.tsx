@@ -21,7 +21,10 @@ const Home = () => {
     } catch(err){
       console.warn(err);
     }
-  }
+  } 
+
+  // criar renderização para quando fizer post e aparecer no get de adicionados recentemente
+  // ja renderizar automaticante ao entrtar na página
 
   useEffect(() =>{
     handleGetProdutos();
@@ -54,6 +57,7 @@ const Home = () => {
         <Text style={styles.text}>Adicionados recentemente</Text>
       </View>
       <View style={styles.produtosRecente}>
+        {/* {produto.map(({item}) => <ProductCardItem title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>)} */}
         <FlatList
             data={produto}
             renderItem={({item}) => <ProductCardItem title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>}

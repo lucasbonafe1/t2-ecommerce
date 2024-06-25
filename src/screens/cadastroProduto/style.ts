@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
     },
     titlePag: {
         color: "#FFF",
-        fontSize: 35,
-        marginBottom: 10,
+        fontSize: 30,
+        marginBottom: "7%"
     },
     exportQuad: {
         backgroundColor: "#D9D9D9",
@@ -70,7 +70,8 @@ const styles = StyleSheet.create({
     },
     title: {
         color: "#FFF",
-        fontSize: 22,
+        fontSize: 17,
+        fontWeight: "500",
         marginBottom: 5,
     },
     input: {
@@ -82,6 +83,12 @@ const styles = StyleSheet.create({
         height: 45,
         borderRadius: 10,
         fontSize: 16,
+    },
+    errorText: {
+        color: 'red',
+        fontSize: 10,
+        fontWeight: "700",
+        marginTop: 5,
     },
     button: {
         backgroundColor: "#E45858",
@@ -95,6 +102,14 @@ const styles = StyleSheet.create({
         color: "#FFF",
         fontSize: 30,
     },
+    buttonDisabled:{
+        backgroundColor: "gray",
+        width: '75%',
+        borderRadius: 10,
+        paddingVertical: 3,
+        justifyContent: "center",
+        alignItems: "center",
+    }
 });
 
 export default styles;
