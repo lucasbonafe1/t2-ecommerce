@@ -7,7 +7,7 @@ import DrawerRoutes from './drawer';
 type StackNavigation = {
     Welcome: undefined,
     Login: undefined,
-    Home: undefined,
+    Drawer: undefined,
 }
 
 const Stack = createNativeStackNavigator();
@@ -31,7 +31,7 @@ export default function Routes(){
                 }}
             />
             <Stack.Screen
-                name='Home'
+                name='Drawer'
                 component={DrawerRoutes}
                 options={{
                     headerShown: false

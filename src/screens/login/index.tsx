@@ -24,7 +24,7 @@ export default function Login(){
             const adminValido = await getAdmin();
             if(email === adminValido[0].email && senha === adminValido[0].senha) {
                 setLogado(true); // criar context de loading, se for true, navegar por rotas privadas
-                navigation.navigate('Home');
+                navigation.navigate('Drawer');
             } else {
                 setModalVisibility(!modalVisibility);
             }       
