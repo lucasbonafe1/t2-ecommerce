@@ -1,18 +1,34 @@
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, ScrollView } from 'react-native';
 import SearchBar from '../../components/searchBar';
 import * as Animatable from 'react-native-animatable';
 import styles from '../home/style';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import products from "./products.json";
 import ProductCard from '../../components/productCard';
+import { getProduto } from '../../services/produto';
 
 const Home = () => {
+  const[produto, setProduto] = useState();
+
   const ProductCardItem = ({title, price, imageUrl}: any) => (
     <ProductCard title={title} price={price} imageUrl={imageUrl}></ProductCard>
   )
 
+  const handleGetProdutos = async () => {
+    try{
+      const produtos = await getProduto();
+      setProduto(produtos);
+    } catch(err){
+      console.warn(err);
+    }
+  }
+
+  useEffect(() =>{
+    handleGetProdutos();
+  },[])
+  
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={styles.containerLogo}>
         <Animatable.Image
           animation="flipInY"
@@ -37,7 +53,18 @@ const Home = () => {
       <View style={styles.adicionadosTextContainer}>
         <Text style={styles.text}>Adicionados recentemente</Text>
       </View>
-    </View>
+      <View style={styles.produtosRecente}>
+        <FlatList
+            data={produto}
+            renderItem={({item}) => <ProductCardItem title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>}
+            horizontal={false}
+            numColumns={3}
+            contentContainerStyle={{ gap: 30}}
+            columnWrapperStyle={{ gap: 10 }}
+          />
+      </View>
+      
+    </ScrollView>
   )
 }
 

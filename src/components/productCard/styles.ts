@@ -3,8 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     width: 128,
-    height: 180,
-    alignItems: 'center'
+    height: 210,
+    alignItems: 'center',
   },
 
   image:{

@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     containerSearch:{
         height: 50,
         width: 350,
-        marginBottom: 12,
+        marginBottom: 30,
         borderRadius: 40,
         fontSize: 16,
         backgroundColor: "white",

@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#232323',
-        justifyContent: 'flex-start',
     },
     containerLogo: {
         flex: 0.23,
@@ -24,7 +23,7 @@ const styles = StyleSheet.create({
     line: {
         borderBottomColor: '#FFFFFF',
         borderBottomWidth: 1,
-        width: '80%',
+        width: '95%',
         alignSelf: 'center',
         marginVertical: 10,
     },
@@ -32,11 +31,18 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontSize: 25,
         fontWeight: 'bold',
+        marginBottom: 40
+        
     },
     products: {
         width: '100%',
-        height: 190
-    }
+        height: 260,
+    },
+    produtosRecente:{
+        marginBottom: 40,
+        height: 'auto',
+        
+    },
 });
 
 export default styles;
