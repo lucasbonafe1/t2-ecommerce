@@ -5,7 +5,7 @@ const productCard = (props: any) => {
   return(
     <View style={styles.container}>
       <Image style={styles.image} source={{uri: props.imageUrl}}/>
-      <Text style={styles.title}>
+      <Text style={styles.title} numberOfLines={1}>
         {props.title}
       </Text>
       <Text style={styles.price} numberOfLines={1}>

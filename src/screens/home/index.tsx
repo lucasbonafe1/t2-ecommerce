@@ -21,7 +21,7 @@ const Home = () => {
     } catch(err){
       console.warn(err);
     }
-  } 
+  }
 
   // criar renderização para quando fizer post e aparecer no get de adicionados recentemente
   // ja renderizar automaticante ao entrtar na página
@@ -49,7 +49,7 @@ const Home = () => {
           data={products}
           renderItem={({item}) => <ProductCardItem title={item.title} price={item.price} imageUrl={item.imageUrl}></ProductCardItem>}
           horizontal={true}
-          contentContainerStyle={{ gap: 12}}
+          //contentContainerStyle={{ gap: 0}}
         />
       </View>
       <View style={styles.line} />
@@ -63,8 +63,8 @@ const Home = () => {
             renderItem={({item}) => <ProductCardItem title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>}
             horizontal={false}
             numColumns={3}
-            contentContainerStyle={{ gap: 30}}
-            columnWrapperStyle={{ gap: 10 }}
+            contentContainerStyle={{ right: 12, top: 5 }}
+            //columnWrapperStyle={{  }}
           />
       </View>
     </ScrollView>

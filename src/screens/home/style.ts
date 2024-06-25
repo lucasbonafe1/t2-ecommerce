@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { red } from 'react-native-reanimated/lib/typescript/reanimated2/Colors';
 
 const styles = StyleSheet.create({
     container: {
@@ -9,41 +10,37 @@ const styles = StyleSheet.create({
         height: '6%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 2,
+        marginTop: 25,
+        marginBottom: 25,
     },
     produtosTextContainer: {
-        flex: 0.15,
         justifyContent: 'center',
         alignItems: 'center',
     },
     adicionadosTextContainer: {
-        flex: 0.4,
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 15
     },
     line: {
         borderBottomColor: '#FFFFFF',
         borderBottomWidth: 1,
-        width: '92%',
+        width: '95%',
         alignSelf: 'center',
-        marginVertical: 10,
-        bottom: 15,
+        margin: 10
     },
     text: {
         color: '#FFFFFF',
         fontSize: 25,
         fontWeight: 'bold',
-        marginBottom: 40
-        
     },
     products: {
         width: '100%',
-        height: 260,
+        height: 180,
     },
     produtosRecente:{
-        marginBottom: 40,
-        height: 'auto',
-        
+        height: 500,
+        width: 375,
     },
 });
 

@@ -143,7 +143,7 @@ export function CadastroProduto() {
             <View style={[styles.quad5, { backgroundColor: '#232323' }]}>
                 <Text style={styles.title}>Preço</Text>
                 <TextInput
-                    placeholder="R$00,00"
+                    placeholder="99,99"
                     placeholderTextColor="#909094"
                     style={[styles.input, { backgroundColor: '#D9D9D9', color: '#000' }]}
                     onChangeText={text => { setPreco(text); setMessage(prevState => ({ ...prevState, preco: "" })); }}
@@ -155,7 +155,7 @@ export function CadastroProduto() {
                     null}
             </View>
             <View style={styles.quad6} />
-            <View style={[styles.quad7, { flex: 2, backgroundColor: '#232323' }]}>
+            <View style={[styles.quad7, { backgroundColor: '#232323' }]}>
                 <TouchableOpacity style={styles.button} onPress={validationInput}>
                     <Text style={styles.buttonText}>Enviar</Text>
                 </TouchableOpacity>

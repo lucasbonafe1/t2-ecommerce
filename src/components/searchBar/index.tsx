@@ -8,11 +8,11 @@ const SearchBar = () => {
     const[search, setSearch] = useState("");
     // usar esse useState para procurar na flatlist produtos para ver se tem igual o que
     // foi pesquisado.
-    
+
   return (
     <View style={styles.container}>
         <Animatable.View animation="fadeInUp" style={styles.containerSearch}>
-         <TextInput
+          <TextInput
                 placeholder="Pesquisar"
                 placeholderTextColor={"#909094"}
                 style={styles.textInput}
@@ -21,7 +21,6 @@ const SearchBar = () => {
             />
             <Ionicons name="search-outline" size={25} style={styles.iconSearch}></Ionicons>
         </Animatable.View>
-      
     </View>
   )
 }

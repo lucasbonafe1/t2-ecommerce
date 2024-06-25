@@ -7,13 +7,13 @@ const styles = StyleSheet.create({
     },
     quad: {
         backgroundColor: "#232323",
-        flex: 1,
+        paddingVertical: 6,
     },
     quad2: {
         backgroundColor: "#232323",
-        flex: 7,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingVertical: 5,
     },
     titlePag: {
         color: "#FFF",
@@ -28,45 +28,39 @@ const styles = StyleSheet.create({
     },
     quad3: {
         backgroundColor: "#232323",
-        flex: 2,
         justifyContent: 'center',
         alignItems: 'flex-start',
         paddingHorizontal: 30,
-        marginBottom: 15,
-        marginTop: 15,
+        marginBottom: 10,
+        marginTop: 10,
     },
     quad4: {
         backgroundColor: "#232323",
-        flex: 2,
         justifyContent: 'center',
         alignItems: 'flex-start',
         paddingHorizontal: 30,
-        marginBottom: 15,
-        marginTop: 15,
+        marginBottom: 10,
+        marginTop: 10,
     },
     quad5: {
         backgroundColor: "#232323",
-        flex: 2,
         justifyContent: 'center',
         alignItems: 'flex-start',
         paddingHorizontal: 30,
-        marginBottom: 15,
-        marginTop: 15,
+        marginTop: 10,
     },
     quad6: {
         backgroundColor: "#232323",
-        flex: 0.3,
         marginTop: 15,
     },
     quad7: {
         backgroundColor: "#363A43",
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingVertical: 10,
     },
     quad8: {
         backgroundColor: "#232323",
-        flex: 1,
     },
     title: {
         color: "#FFF",
@@ -80,7 +74,7 @@ const styles = StyleSheet.create({
         color: "#000",
         padding: 10,
         width: '100%',
-        height: 45,
+        height: 40,
         borderRadius: 10,
         fontSize: 16,
     },
@@ -97,10 +91,12 @@ const styles = StyleSheet.create({
         paddingVertical: 3,
         justifyContent: "center",
         alignItems: "center",
+        marginBottom: 10
     },
     buttonText: {
         color: "#FFF",
         fontSize: 30,
+        margin: 2
     },
     buttonDisabled:{
         backgroundColor: "gray",
