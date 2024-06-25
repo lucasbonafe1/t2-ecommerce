@@ -13,7 +13,7 @@ const SearchBar = () => {
     <View style={styles.container}>
         <Animatable.View animation="fadeInUp" style={styles.containerSearch}>
          <TextInput
-                placeholder="Pesquisar.."
+                placeholder="Pesquisar"
                 placeholderTextColor={"#909094"}
                 style={styles.textInput}
                 onChangeText={setSearch}

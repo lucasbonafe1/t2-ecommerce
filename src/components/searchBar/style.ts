@@ -5,9 +5,9 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     containerSearch:{
-        height: 50,
+        height: 38,
         width: 350,
-        marginBottom: 30,
+        bottom: 20,
         borderRadius: 40,
         fontSize: 16,
         backgroundColor: "white",
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     },
     iconSearch:{
         marginLeft: "89%",
-        top: "25%",
+        top: "17%",
         position: "absolute"
     }
 });

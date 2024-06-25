@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
         height: '6%',
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 2,
     },
     produtosTextContainer: {
         flex: 0.15,
@@ -23,9 +24,10 @@ const styles = StyleSheet.create({
     line: {
         borderBottomColor: '#FFFFFF',
         borderBottomWidth: 1,
-        width: '95%',
+        width: '92%',
         alignSelf: 'center',
         marginVertical: 10,
+        bottom: 15,
     },
     text: {
         color: '#FFFFFF',
