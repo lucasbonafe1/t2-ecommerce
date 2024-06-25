@@ -2,6 +2,7 @@ import { NativeStackNavigationProp, createNativeStackNavigator } from '@react-na
 import Welcome from '../screens/welcome';
 import Login from '../screens/login';
 import Home from '../screens/home';
+import DrawerRoutes from './drawer';
 
 type StackNavigation = {
     Welcome: undefined,
@@ -31,7 +32,7 @@ export default function Routes(){
             />
             <Stack.Screen
                 name='Home'
-                component={Home}
+                component={DrawerRoutes}
                 options={{
                     headerShown: false
                 }}

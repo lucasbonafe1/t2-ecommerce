@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, TextInput, Text, TouchableOpacity } from "react-native";
 import styles from "./style";
 
-export function Screen() {
+export function CadastroProduto() {
     const [titulo, setTitulo] = useState("");
     const [descricao, setDescricao] = useState("");
     const [preco, setPreco] = useState("");
@@ -60,5 +60,3 @@ export function Screen() {
         </View>
     );
 }
-
-export default Screen;
