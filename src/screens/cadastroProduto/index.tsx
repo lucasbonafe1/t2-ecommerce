@@ -7,7 +7,6 @@ import * as ImagePicker from "expo-image-picker"
 import { postProduto } from "../../services/produto";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-
 export function CadastroProduto() {
     const [image, setImage] = useState("");
     const [titulo, setTitulo] = useState("");
@@ -18,13 +17,12 @@ export function CadastroProduto() {
         image: image,
         title: titulo,
         descricao: descricao,
-        valor: preco                 
+        valor: preco
     }
 
     const handlePostProduto = async () =>{
         try{
             const produtoPostado = await postProduto(produto);
-            // console.log(produtoPostado);
         } catch(err){
             console.warn(err)
         }

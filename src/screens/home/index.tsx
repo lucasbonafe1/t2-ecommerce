@@ -25,8 +25,8 @@ const Home = () => {
 
   useEffect(() =>{
     handleGetProdutos();
-  },[])
-  
+  },[produto])
+
   return (
     <ScrollView style={styles.container}>
       <View style={styles.containerLogo}>
@@ -63,7 +63,6 @@ const Home = () => {
             columnWrapperStyle={{ gap: 10 }}
           />
       </View>
-      
     </ScrollView>
   )
 }
