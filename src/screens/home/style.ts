@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#232323',
     },
     containerLogo: {
-        flex: 0.23,
+        height: '6%',
         justifyContent: 'center',
         alignItems: 'center',
     },

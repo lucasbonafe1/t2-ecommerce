@@ -3,8 +3,10 @@ import { View, TextInput, Text, TouchableOpacity, Image } from "react-native";
 import styles from "./style";
 
 import { Ionicons } from '@expo/vector-icons';
-import * as ImagePicker from "expo-image-picker" 
+import * as ImagePicker from "expo-image-picker"
 import { postProduto } from "../../services/produto";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 export function CadastroProduto() {
     const [image, setImage] = useState("");
@@ -48,15 +50,18 @@ export function CadastroProduto() {
             <View style={[styles.quad2, { justifyContent: 'flex-start', paddingTop: 20 }]}>
                 <Text style={[styles.titlePag, { fontWeight: 'bold' }]}>Novo Produto</Text>
                 <TouchableOpacity onPress={() => handleImagePicker()}>
-                    <View style={styles.exportQuad}>
-                    <Image
-                        source={{uri: image}}
-                        style={{width: '100%', height: '100%'}}
-                        resizeMode="contain"
-                    />
-                    </View>
-                </TouchableOpacity>
-                
+            <View style={styles.exportQuad}>
+            {image ? (
+            <Image
+                source={{uri: image}}
+                style={{width: '100%', height: '100%'}}
+                resizeMode="contain"
+            />
+             ) : (
+            <MaterialCommunityIcons name="image-plus" size={155} color="#232323" />
+             )}
+            </View>
+        </TouchableOpacity>
             </View>
             <View style={[styles.quad3, { backgroundColor: '#232323' }]}>
                 <Text style={styles.title}>Título</Text>
