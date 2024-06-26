@@ -1,17 +1,23 @@
-import { View, Text, FlatList, ScrollView } from 'react-native';
+import { View, Text, FlatList, ScrollView, TouchableOpacity } from 'react-native';
 import SearchBar from '../../components/searchBar';
 import * as Animatable from 'react-native-animatable';
 import styles from '../home/style';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useFocusEffect } from '@react-navigation/native';
 import products from "./products.json";
 import ProductCard from '../../components/productCard';
 import { getProduto } from '../../services/produto';
+import { useNavigation } from '@react-navigation/native';
+import { StackTypes } from "../../routes/stack";
 
 const Home = () => {
   const[produto, setProduto] = useState();
+  const navigation = useNavigation<StackTypes>();
 
-  const ProductCardItem = ({title, price, imageUrl}: any) => (
-    <ProductCard title={title} price={price} imageUrl={imageUrl}></ProductCard>
+  const ProductCardItem = ({item, title, price, imageUrl}: any) => (
+    <TouchableOpacity onPress={() => navigation.navigate('Detail', {item})}>
+      <ProductCard title={title} price={price} imageUrl={imageUrl}/>
+    </TouchableOpacity>
   )
 
   const handleGetProdutos = async () => {
@@ -26,9 +32,11 @@ const Home = () => {
   // criar renderização para quando fizer post e aparecer no get de adicionados recentemente
   // ja renderizar automaticante ao entrtar na página
 
-  useEffect(() =>{
-    handleGetProdutos();
-  },[produto])
+  useFocusEffect(
+    React.useCallback(() => {
+      handleGetProdutos();
+    }, [])
+  );
 
   return (
     <ScrollView style={styles.container}>
@@ -47,9 +55,8 @@ const Home = () => {
       <View style={styles.products}>
         <FlatList
           data={products}
-          renderItem={({item}) => <ProductCardItem title={item.title} price={item.price} imageUrl={item.imageUrl}></ProductCardItem>}
+          renderItem={({item}) => <ProductCardItem item={item} title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>}
           horizontal={true}
-          //contentContainerStyle={{ gap: 0}}
         />
       </View>
       <View style={styles.line} />
@@ -60,11 +67,10 @@ const Home = () => {
         {/* {produto.map(({item}) => <ProductCardItem title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>)} */}
         <FlatList
             data={produto}
-            renderItem={({item}) => <ProductCardItem title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>}
+            renderItem={({item}) => <ProductCardItem item={item} title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>}
             horizontal={false}
             numColumns={3}
             contentContainerStyle={{ right: 12, top: 5 }}
-            //columnWrapperStyle={{  }}
           />
       </View>
     </ScrollView>

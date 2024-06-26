@@ -1,27 +1,32 @@
 [
   {
     "title": "Fantasia Chavito",
-    "price": "183,99",
-    "imageUrl": "https://www.felixfantasias.com.br/arquivos/PRODUTOS/3601693326358630842/1_GG_Fantasia-Menino-do-Barril-Adulto-Florecida_36.webp"
+    "valor": "183,99",
+    "descricao": "Fantasia Chavito mto foda",
+    "image": "https://www.felixfantasias.com.br/arquivos/PRODUTOS/3601693326358630842/1_GG_Fantasia-Menino-do-Barril-Adulto-Florecida_36.webp"
   },
   {
     "title": "Combo Barney",
-    "price": "299,99",
-    "imageUrl": "https://www.bellacollezione.com/image/cache/catalog/products/masculino/fantasia-barney-adulto-mascote-800x800h.webp"
+    "valor": "299,99",
+    "descricao": "Fantasia Chavito mto foda",
+    "image": "https://www.bellacollezione.com/image/cache/catalog/products/masculino/fantasia-barney-adulto-mascote-800x800h.webp"
   },
   {
     "title": "Fantasia Pichaku",
-    "price": "279,99",
-    "imageUrl": "https://a-static.mlcdn.com.br/450x450/fantasia-pikachu-inflavel-pokemon-adulto-cosplay-pokemon-go-fantasy/lumenimportados/2993p/138fe0134d107de2774cbb0b15e7b624.jpeg"
+    "valor": "279,99",
+    "descricao": "Fantasia Chavito mto foda",
+    "image": "https://a-static.mlcdn.com.br/450x450/fantasia-pikachu-inflavel-pokemon-adulto-cosplay-pokemon-go-fantasy/lumenimportados/2993p/138fe0134d107de2774cbb0b15e7b624.jpeg"
   },
   {
     "title": "Carla Thais",
-    "price": "259,99",
-    "imageUrl": "https://i.pinimg.com/736x/dc/8d/07/dc8d071c5a861aaa24aeadc36dfa16c1.jpg"
+    "valor": "259,99",
+    "descricao": "Fantasia Chavito mto foda",
+    "image": "https://i.pinimg.com/736x/dc/8d/07/dc8d071c5a861aaa24aeadc36dfa16c1.jpg"
   },
   {
     "title": "Zé das gotas",
-    "price": "25,00",
-    "imageUrl": "https://http2.mlstatic.com/D_NQ_NP_2X_890451-MLB31366026193_072019-F.jpg"
+    "valor": "25,00",
+    "descricao": "Fantasia Chavito mto foda",
+    "image": "https://http2.mlstatic.com/D_NQ_NP_2X_890451-MLB31366026193_072019-F.jpg"
   }
 ]
