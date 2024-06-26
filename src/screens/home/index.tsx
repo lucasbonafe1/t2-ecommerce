@@ -4,34 +4,60 @@ import * as Animatable from 'react-native-animatable';
 import styles from '../home/style';
 import React, { useEffect, useState } from 'react';
 import products from "./products.json";
+import { useFocusEffect } from '@react-navigation/native';
 import ProductCard from '../../components/productCard';
 import { getProduto } from '../../services/produto';
+import Loader from '../../components/loader/loader';
+
+export type produto = {
+  item : {
+    image: string;
+    title: string;
+    descricao: string;
+    valor: string;
+  }
+}
 
 const Home = () => {
-  const[produto, setProduto] = useState();
+  const [produto, setProduto] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const ProductCardItem = ({title, price, imageUrl}: any) => (
     <ProductCard title={title} price={price} imageUrl={imageUrl}></ProductCard>
-  )
+  );
 
   const handleGetProdutos = async () => {
-    try{
+    try {
+      setLoading(true); // Ativa o carregamento
       const produtos = await getProduto();
       setProduto(produtos);
-    } catch(err){
+    } catch (err) {
       console.warn(err);
+    } finally {
+      setLoading(false); // Desativa o carregamento
     }
+  };
+
+  useFocusEffect(
+    React.useCallback(() => {
+      handleGetProdutos();
+    }, [])
+  );
+
+  if (loading) {
+    return <Loader />;
   }
 
-  // criar renderização para quando fizer post e aparecer no get de adicionados recentemente
-  // ja renderizar automaticante ao entrtar na página
-
-  useEffect(() =>{
-    handleGetProdutos();
-  },[produto])
+  if (produto == null || produto.length === 0) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.retorno}>Não há produtos cadastrados recentemente..</Text>
+      </View>
+    );
+  }
 
   return (
-    <ScrollView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.containerLogo}>
         <Animatable.Image
           animation="flipInY"
@@ -40,16 +66,16 @@ const Home = () => {
           resizeMode="contain"
         />
       </View>
-      <SearchBar/>
+      <SearchBar />
       <View style={styles.produtosTextContainer}>
         <Text style={styles.text}>Produtos</Text>
       </View>
       <View style={styles.products}>
         <FlatList
           data={products}
-          renderItem={({item}) => <ProductCardItem title={item.title} price={item.price} imageUrl={item.imageUrl}></ProductCardItem>}
+          renderItem={({ item }) => <ProductCardItem title={item.title} price={item.price} imageUrl={item.imageUrl}></ProductCardItem>}
           horizontal={true}
-          //contentContainerStyle={{ gap: 0}}
+          contentContainerStyle={{ gap: 12 }}
         />
       </View>
       <View style={styles.line} />
@@ -57,19 +83,17 @@ const Home = () => {
         <Text style={styles.text}>Adicionados recentemente</Text>
       </View>
       <View style={styles.produtosRecente}>
-        {/* {produto.map(({item}) => <ProductCardItem title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>)} */}
         <FlatList
-            data={produto}
-            renderItem={({item}) => <ProductCardItem title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>}
-            horizontal={false}
-            numColumns={3}
-            contentContainerStyle={{ right: 12, top: 5 }}
-            //columnWrapperStyle={{  }}
-          />
+          data={produto}
+          renderItem={({item} : produto) => <ProductCardItem title={item.title} price={item.valor} imageUrl={item.image}></ProductCardItem>}
+          horizontal={false}
+          numColumns={3}
+          contentContainerStyle={{ gap: 30 }}
+          columnWrapperStyle={{ gap: 10 }}
+        />
       </View>
-    </ScrollView>
-  )
-}
-
+    </View>
+  );
+};
 
 export default Home;
