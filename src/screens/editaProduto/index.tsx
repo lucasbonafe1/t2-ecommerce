@@ -4,15 +4,24 @@ import styles from "./style";
 import PopUp from "../../components/popUp/success/success";
 import { AntDesign } from '@expo/vector-icons';
 import * as ImagePicker from "expo-image-picker"
-import { postProduto } from "../../services/produto";
+import { postProduto, updatePedido } from "../../services/produto";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { StackTypes } from "../../routes/stack";
+import { UpdateType } from "../../routes/stack";
 
-export function CadastroProduto() {
-    const [modalVisibility, setModalVisibility] = useState(false);
-    const [image, setImage] = useState("");
-    const [titulo, setTitulo] = useState("");
-    const [descricao, setDescricao] = useState("");
-    const [preco, setPreco] = useState("");
+export function Update({ route }: UpdateType) {
+
+    const props = route.params;
+
+    const[modalVisibility, setModalVisibility] = useState(false);
+    const [image, setImage] = useState(props?.item.image);
+    const [titulo, setTitulo] = useState(props?.item.title);
+    const [descricao, setDescricao] = useState(props?.item.descricao);
+    const [preco, setPreco] = useState(props?.item.valor);
+
+    const navigation = useNavigation<StackTypes>();
+   
 
     const [message, setMessage] = useState({
         image: "",
@@ -26,15 +35,23 @@ export function CadastroProduto() {
         descricao: descricao,
         valor: preco
     }
+
+
   
-    const handlePostProduto = async () => {
+    const handlePutProduto = async () => {
         try {
-            const produtoPostado = await postProduto(produto);
+            setImage(image)
+            setTitulo(titulo)
+            setDescricao(descricao)
+            setPreco(preco)
+            const produtoAtualizado = await updatePedido(props?.item.id, produto)
             // console.log(produtoPostado);
         } catch (err) {
             console.warn(err)
         }
     }
+
+    console.log(props?.item.id)
 
     const validationInput = () => {
         let valid = true;
@@ -62,7 +79,7 @@ export function CadastroProduto() {
         setMessage(errors);
 
         if (valid) {
-            handlePostProduto();
+            handlePutProduto();
             setModalVisibility(!modalVisibility);
             setImage("")
             setTitulo("")
@@ -70,6 +87,12 @@ export function CadastroProduto() {
             setPreco("")
         }
     }
+
+    const handleButtonClicked = () => {
+        setModalVisibility(!modalVisibility);
+        navigation.navigate('Drawer')
+    }
+
 
     const handleImagePicker = async () => {
         const result = await ImagePicker.launchImageLibraryAsync({
@@ -86,18 +109,17 @@ export function CadastroProduto() {
         }
     }
 
+
     return (
         <View style={styles.container}>
             <PopUp
-            onPress={() =>
-            setModalVisibility(!modalVisibility)}
+            onPress={handleButtonClicked}
             modalVisibility={modalVisibility}
-            popUpText={'Produto Adicionado.'}
+            popUpText={'Produto editado com sucesso.'}
             successIcon={<AntDesign name="checkcircle" size={110} color="green" />}
         />
             <View style={styles.quad} />
             <View style={[styles.quad2, { justifyContent: 'flex-start', paddingTop: 20 }]}>
-                
                 <TouchableOpacity onPress={() => handleImagePicker()}>
                     <View style={styles.exportQuad}>
                         {image ? (

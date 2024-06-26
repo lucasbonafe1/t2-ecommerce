@@ -4,7 +4,7 @@ import { useState } from 'react'
 import * as Animatable from 'react-native-animatable'
 import { Ionicons } from '@expo/vector-icons';
 
-const SearchBar = () => {
+const SearchBar = ({onchange, valor} : any) => {
     const[search, setSearch] = useState("");
     // usar esse useState para procurar na flatlist produtos para ver se tem igual o que
     // foi pesquisado.
@@ -16,8 +16,8 @@ const SearchBar = () => {
                 placeholder="Pesquisar"
                 placeholderTextColor={"#909094"}
                 style={styles.textInput}
-                onChangeText={setSearch}
-                value={search}
+                onChangeText={onchange}
+                value={valor}
             />
             <Ionicons name="search-outline" size={25} style={styles.iconSearch}></Ionicons>
         </Animatable.View>

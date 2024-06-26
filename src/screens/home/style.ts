@@ -34,10 +34,6 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: 'bold',
     },
-    retorno:{
-        fontSize: 25,
-        color: '#FFFFFF'
-    },
     products: {
         width: '100%',
         height: 180,

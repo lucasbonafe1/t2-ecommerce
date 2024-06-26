@@ -62,10 +62,15 @@ export default function DrawerRoutes() {
                 name='Adicionar Produto'
                 component={CadastroProduto}
                 options={{
-                    headerShown: false, // Não mostrar header em CadastroProduto
+                    headerTintColor: "white",
+                    headerStyle: {
+                        backgroundColor: '#2B2C34',
+                    },
+                    headerTitleAlign:'center',
                     drawerIcon: ({ size }) => (
                         <FontAwesome6 name="add" size={size} color={'#EAEAEA'} />
                     ),
+
                 }}
             />
             <Drawer.Screen

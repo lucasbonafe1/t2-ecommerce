@@ -11,3 +11,13 @@ export const postProduto = async (newProduto: {}) => {
     return data;
 };
 
+export const deleteProduto = async (id: {}) => {
+  const { data } = await api.delete("/produtos/" + id);
+  return data;
+};
+
+export const updatePedido = async (id: {}, newProduto: {}) => {
+  const { data } = await api.put("/produtos/" + id, newProduto);
+  return data;
+};
+
