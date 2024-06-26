@@ -1,13 +1,14 @@
-import { View, Text, FlatList, ScrollView } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import SearchBar from '../../components/searchBar';
 import * as Animatable from 'react-native-animatable';
 import styles from '../home/style';
 import React, { useEffect, useState } from 'react';
 import products from "./products.json";
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, DrawerActions, useNavigation } from '@react-navigation/native';
 import ProductCard from '../../components/productCard';
 import { getProduto } from '../../services/produto';
 import Loader from '../../components/loader/loader';
+import { Ionicons } from '@expo/vector-icons';
 
 export type produto = {
   item : {
@@ -21,6 +22,7 @@ export type produto = {
 const Home = () => {
   const [produto, setProduto] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigation = useNavigation();
 
   const ProductCardItem = ({title, price, imageUrl}: any) => (
     <ProductCard title={title} price={price} imageUrl={imageUrl}></ProductCard>
@@ -66,6 +68,13 @@ const Home = () => {
           resizeMode="contain"
         />
       </View>
+      <Ionicons
+        name="menu"
+        size={40}
+        color="#EAEAEA"
+        style={{ marginLeft: 10, position: 'absolute', top: 42, left: 10 }}
+        onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+      />
       <SearchBar />
       <View style={styles.produtosTextContainer}>
         <Text style={styles.text}>Produtos</Text>

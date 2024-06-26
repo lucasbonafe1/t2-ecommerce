@@ -1,4 +1,5 @@
-import { DrawerNavigationProp, createDrawerNavigator } from '@react-navigation/drawer';
+import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import Welcome from '../screens/welcome';
 import Login from '../screens/login';
 import Home from '../screens/home';
@@ -7,20 +8,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
-
-type DrawerNavigation = {
-    Welcome: undefined,
-    Login: undefined,
-    Home: undefined,
-}
+import { DrawerActions } from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
-export type DrawerTypes = DrawerNavigationProp<DrawerNavigation>;
 
 export default function DrawerRoutes() {
     return (
         <Drawer.Navigator
-            screenOptions={{
+            screenOptions={({ navigation }) => ({
                 drawerActiveTintColor: '#EAEAEA',
                 drawerInactiveBackgroundColor: '#232323',
                 drawerInactiveTintColor: '#EAEAEA',
@@ -31,7 +26,27 @@ export default function DrawerRoutes() {
                 drawerLabelStyle: {
                     fontSize: 19,
                 },
-            }}
+                headerStyle: {
+                    backgroundColor: '#6246EA'
+                },
+                headerTitleStyle: {
+                    fontSize: 20, // Reduzindo o tamanho da fonte do título
+                    color: '#D1D1E9',
+                },
+                headerTitleContainerStyle: {
+                    left: 0, // Removendo o espaço extra à esquerda do título
+                },
+                headerTintColor: '#EAEAEA',
+                headerLeft: () => (
+                    <Ionicons
+                        name="menu"
+                        size={30} 
+                        color="#EAEAEA"
+                        style={{ marginLeft: 10 }}
+                        onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+                    />
+                ),
+            })}
         >
             <Drawer.Screen
                 name='Home'
@@ -47,7 +62,7 @@ export default function DrawerRoutes() {
                 name='Adicionar Produto'
                 component={CadastroProduto}
                 options={{
-                    headerShown: false,
+                    headerShown: false, // Não mostrar header em CadastroProduto
                     drawerIcon: ({ size }) => (
                         <FontAwesome6 name="add" size={size} color={'#EAEAEA'} />
                     ),
