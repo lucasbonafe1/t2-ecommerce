@@ -32,14 +32,14 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 20,
         marginBottom: 20,
-        height: 140,
+        height: 70,
     },
     buttonContainer: {
         backgroundColor: '#262626',
         width: '100%',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        paddingVertical:20,
+        paddingVertical: 20,
     },
     button:{
         backgroundColor:'#262626',

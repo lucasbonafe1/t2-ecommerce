@@ -23,7 +23,7 @@ export default function Login(){
         try {
             const adminValido = await getAdmin();
             if(email === adminValido[0].email && senha === adminValido[0].senha) {
-                setLogado(true); // criar context de loading, se for true, navegar por rotas privadas
+                setLogado(true);
                 navigation.navigate('Drawer');
             } else {
                 setModalVisibility(!modalVisibility);
@@ -34,7 +34,7 @@ export default function Login(){
          setSenha('');
      };
 
-     // post utilizado para enviar login único do admin
+    
       const postNewAdmin = async () => {
           try{
               //const adminValido = await postAdmin(admin);
@@ -49,7 +49,7 @@ export default function Login(){
             onPress={() =>
             setModalVisibility(!modalVisibility)}
             modalVisibility={modalVisibility}
-            popUpText={'Suas credencias estão incorretas.'}
+            popUpText={'Email e/ou senha incorretos.'}
             errorIcon={<MaterialIcons name="error-outline" size={110} color="#E45858"/>}
         />
         <Animatable.View animation="fadeInLeft" delay={500} style={styles.containerHeader}>

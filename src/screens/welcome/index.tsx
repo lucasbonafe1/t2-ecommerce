@@ -19,13 +19,13 @@ export default function Welcome(){
             <View style={styles.containerLogo}>
                 <Animatable.Image
                     animation="flipInY"
-                    source={require("../../../assets/logo/logo.png")}
+                    source={require("../../../assets/logo/newLogo.png")}
                     style={{width: '100%'}}
                     resizeMode="contain"
                 />
             </View>
             <Animatable.View delay={600} animation="fadeInUp" style={styles.containerForm}>
-                <Text style={styles.title}>Seja bem-vindo ao Sistema interno da Cordeiro Fantasy</Text>
+                <Text style={styles.title}>Seja bem-vindo ao Aplicativo da Cordeiro Fantasy</Text>
                 <Text style={styles.text}>É funcionário? entre no sistema.</Text>
 
                 <TouchableOpacity

@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     title:{
         fontSize: 24,
         fontWeight: "bold",
-        marginTop: 28,
-        marginBottom: 12,
+        marginTop: 15,
+        marginBottom: 10,
         color: '#D1D1E9'
     },
     text:{
@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     },
     button:{
         position:'absolute',
+        marginTop: 50,
         backgroundColor: "#E45858",
         borderRadius: 50,
         paddingVertical: 8,

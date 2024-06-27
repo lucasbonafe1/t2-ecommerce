@@ -9,6 +9,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { DrawerActions } from '@react-navigation/native';
+import Sobre from '../screens/sobre';
 
 const Drawer = createDrawerNavigator();
 
@@ -30,11 +31,11 @@ export default function DrawerRoutes() {
                     backgroundColor: '#6246EA'
                 },
                 headerTitleStyle: {
-                    fontSize: 20, // Reduzindo o tamanho da fonte do título
+                    fontSize: 20,
                     color: '#D1D1E9',
                 },
                 headerTitleContainerStyle: {
-                    left: 0, // Removendo o espaço extra à esquerda do título
+                    left: 0,
                 },
                 headerTintColor: '#EAEAEA',
                 headerLeft: () => (
@@ -64,7 +65,7 @@ export default function DrawerRoutes() {
                 options={{
                     headerTintColor: "white",
                     headerStyle: {
-                        backgroundColor: '#2B2C34',
+                        backgroundColor: '#6246EA',
                     },
                     headerTitleAlign:'center',
                     drawerIcon: ({ size }) => (
@@ -75,11 +76,15 @@ export default function DrawerRoutes() {
             />
             <Drawer.Screen
                 name='Sobre'
-                component={Login}
+                component={Sobre}
                 options={{
-                    headerShown: false,
+                    headerTintColor: "white",
+                    headerStyle: {
+                        backgroundColor: '#6246EA',
+                    },
+                    headerTitleAlign:'center',
                     drawerIcon: ({ size }) => (
-                        <Ionicons name="people-sharp" size={size} color={'#EAEAEA'} />
+                        <FontAwesome6 name="add" size={size} color={'#EAEAEA'} />
                     ),
                 }}
             />

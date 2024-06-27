@@ -3,41 +3,47 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
         padding: 15,
-        backgroundColor: "black",
+        backgroundColor: "#2B2C34",
     },
     quad: {
         width: '100%',
-        padding: 23,
-        backgroundColor: '#D9D9D9',
+        height: 400,
+        backgroundColor: '#6246EA',
         borderRadius: 10,
-        top: 8,
+        top: 20,
+        gap: 10,
     },
     quad2: {
         width: '100%',
-        padding: 23,
-        backgroundColor: '#D9D9D9',
+        padding: 20,
+        backgroundColor: '#D1D1E9',
         borderRadius: 10,
-        top: 15,
+        marginBottom: 90,
+        gap: 20,
+        top: 40,
     },
     title: {
-        fontSize: 30,
+        fontSize: 26,
         textAlign: 'center',
-        color: '#000',
-        fontWeight: 'bold'
+        color: '#2B2C34',
+        fontWeight: 'bold',
     },
     content: {
         textAlign: 'center',
-        fontSize: 17,
-        color: '#000'
+        fontSize: 16,
+        color: '#D1D1E9'
+    },
+    containerimagelogo:{
+        alignItems: "center",
+        marginBottom: 20,
+
     },
     imagelogo: {
-        paddingTop: 25,
+        padding: 25,
         width: "25%",
         height: 100,
-        top: '1%',
+        top: '14%',
     },
     imagefoto: {
         width: 70,
@@ -48,23 +54,16 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
     },
-    button8: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: '#DDDDDD',
-        padding: 10,
-        borderRadius: 5,
-    },
     text: {
         marginTop: 10,
         fontSize: 15,
-        color: '#000',
+        color: '#2B2C34',
         fontWeight: 'bold'
     },
     button: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#DDDDDD',
+        backgroundColor: '#D1D1E9',
     },
 
 });

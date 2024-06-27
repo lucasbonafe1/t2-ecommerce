@@ -45,7 +45,6 @@ export function Update({ route }: UpdateType) {
             setDescricao(descricao)
             setPreco(preco)
             const produtoAtualizado = await updatePedido(props?.item.id, produto)
-            // console.log(produtoPostado);
         } catch (err) {
             console.warn(err)
         }

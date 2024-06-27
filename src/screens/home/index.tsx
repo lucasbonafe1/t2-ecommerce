@@ -72,8 +72,8 @@ const Home = () => {
       <View style={styles.containerLogo}>
         <Animatable.Image
           animation="flipInY"
-          source={require("../../../assets/logo/logo.png")}
-          style={{ width: '15%' }}
+          source={require("../../../assets/logo/newLogo.png")}
+          style={{ width: '22%' }}
           resizeMode="contain"
         />
       </View>
@@ -81,7 +81,7 @@ const Home = () => {
         name="menu"
         size={40}
         color="#EAEAEA"
-        style={{ marginLeft: 10, position: 'absolute', top: 42, left: 10 }}
+        style={{ marginLeft: 10, position: 'absolute', top: 44, left: 10 }}
         onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
       />
       <SearchBar onchange={setSearch} valor={search} />
@@ -98,7 +98,14 @@ const Home = () => {
       </View>
       <View style={styles.line} />
       <View style={styles.adicionadosTextContainer}>
-        <Text style={styles.text}>Adicionados recentemente</Text>
+        {produtos.length != 0 ? 
+          (
+            <Text style={styles.text}>Adicionados recentemente</Text>
+          ) : (
+            <Text style={styles.text}>0 produtos adicionados recentemente.</Text>
+          )
+        }
+        
       </View>
       <View style={styles.produtosRecente}>
         <FlatList

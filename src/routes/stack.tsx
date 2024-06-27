@@ -56,7 +56,7 @@ export default function Routes(){
                 options={{
                     headerTintColor: "white",
                     headerStyle: {
-                        backgroundColor: '#2B2C34',
+                        backgroundColor: '#6246EA',
                     },
                     headerTitleAlign:'center',
                 }}

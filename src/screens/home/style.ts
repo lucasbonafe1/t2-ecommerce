@@ -10,17 +10,21 @@ const styles = StyleSheet.create({
         height: '10%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 25,
-        marginBottom: 25,
+        marginTop: 45,
+        marginBottom: 50,
     },
     produtosTextContainer: {
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: 10,
+        marginBottom: 25,
     },
     adicionadosTextContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 15
+        marginRight: 150,
+        marginTop: 15,
+        marginBottom: 20
     },
     line: {
         borderBottomColor: '#FFFFFF',

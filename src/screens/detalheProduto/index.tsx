@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import React, { useState } from 'react';
 import styles from './style';
-import { EvilIcons } from '@expo/vector-icons';
+import { EvilIcons, Feather } from '@expo/vector-icons';
 import { DetailType } from '../../routes/stack';
 import { useNavigation } from '@react-navigation/native';
 import { StackTypes } from "../../routes/stack";
@@ -46,7 +46,7 @@ const[modalVisibility, setModalVisibility] = useState(false);
                 onPress={
                 handleButtonClicked}
                 modalVisibility={modalVisibility}
-                popUpText={'Produto deletado com sucesso.'}
+                popUpText={'Produto deletado.'}
                 errorIcon={<EvilIcons name="trash" size={100} color="#E45858" />}
             />
             <View style= {styles.imageContainer}>
@@ -66,13 +66,13 @@ const[modalVisibility, setModalVisibility] = useState(false);
                         style={[styles.button, styles.editButton]}
                         onPress={() => navigation.navigate('Editar', props)}
                     >
-                        <Text style={styles.buttonText}>Editar</Text>
+                        <Feather name="edit" size={30} color="white" />
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={[styles.button, styles.deleteButton]}
                         onPress={handleDeleteProduct}
                     >
-                        <Text style={styles.buttonText}>Deletar</Text>
+                        <EvilIcons name="trash" size={50} color="white" />
                     </TouchableOpacity>
                 </View>
             </View>

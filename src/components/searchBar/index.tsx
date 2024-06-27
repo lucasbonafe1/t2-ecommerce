@@ -1,7 +1,6 @@
 import { View, Text, TextInput } from 'react-native'
 import styles from './style';
 import { useState } from 'react'
-import * as Animatable from 'react-native-animatable'
 import { Ionicons } from '@expo/vector-icons';
 
 const SearchBar = ({onchange, valor} : any) => {
@@ -11,7 +10,7 @@ const SearchBar = ({onchange, valor} : any) => {
 
   return (
     <View style={styles.container}>
-        <Animatable.View animation="fadeInUp" style={styles.containerSearch}>
+        <View style={styles.containerSearch}>
           <TextInput
                 placeholder="Pesquisar"
                 placeholderTextColor={"#909094"}
@@ -20,7 +19,7 @@ const SearchBar = ({onchange, valor} : any) => {
                 value={valor}
             />
             <Ionicons name="search-outline" size={25} style={styles.iconSearch}></Ionicons>
-        </Animatable.View>
+        </View>
     </View>
   )
 }
